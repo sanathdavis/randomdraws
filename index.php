@@ -1,0 +1,194 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Draw</title>
+
+        <!-- CSS -->
+        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
+        <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css">
+		<link rel="stylesheet" href="assets/css/form-elements.css">
+        <link rel="stylesheet" href="assets/css/style.css">
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+        <!-- Favicon and touch icons -->
+        <link rel="shortcut icon" href="assets/ico/favicon.png">
+        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
+
+    </head>
+
+    <body>
+
+        <!-- Top content -->
+        <div class="top-content">
+        	
+            <div class="inner-bg">
+                <div class="container">
+                	
+                    <div class="row">
+                        <div class="col-sm-8 col-sm-offset-2 text">
+                            <h1><strong>Dart Em Up </strong>Pre Quarter and Quarter Draw</h1>
+                        </div>
+                    </div>
+                    
+                    <form role="form" action="/randomdraws/preQuarters.phtml" method="post" class="login-form">
+                    <div class="row">
+                        <div class="col-sm-5">
+                        	
+                        	<div class="form-box">
+	                        	<div class="form-top">
+	                        		<div class="form-top-left">
+                                        <h1><strong style="color:white;">Titans</strong></h1>
+	                            		<p>Enter the qualified players</p>
+	                        		</div>
+	                        		<div class="form-top-right">
+	                        			<i class="fa fa-anchor"></i>
+	                        		</div>
+	                            </div>
+	                            <div class="form-bottom">
+				                    	<div class="form-group">
+				                    		<label class="sr-only" for="A1">Palyer 1</label>
+                                            <input type="text" name="A1" placeholder="Player 1..." class="form-first-name form-control" id="form-first-name" required="required" value="<?php echo $_POST['A1']; ?>">
+				                        </div>
+                                        <div class="form-group">
+				                    		<label class="sr-only" for="A2">Palyer 1</label>
+                                            <input type="text" name="A2" placeholder="Player 2..." class="form-first-name form-control" id="form-first-name" required="required" value="<?php echo $_POST['A2']; ?>">
+				                        </div>
+                                        <div class="form-group">
+				                    		<label class="sr-only" for="A3">Palyer 1</label>
+                                            <input type="text" name="A3" placeholder="Player 3..." class="form-first-name form-control" id="form-first-name" required="required" value="<?php echo $_POST['A3']; ?>">
+				                        </div>
+                                        <div class="form-group">
+				                    		<label class="sr-only" for="A4">Palyer 1</label>
+                                            <input type="text" name="A4" placeholder="Player 4..." class="form-first-name form-control" id="form-first-name" required="required" value="<?php echo $_POST['A4']; ?>">
+				                        </div>
+                                        <div class="form-group">
+				                    		<label class="sr-only" for="A5">Palyer 1</label>
+                                            <input type="text" name="A5" placeholder="Player 5..." class="form-first-name form-control" id="form-first-name" required="required" value="<?php echo $_POST['A5']; ?>">
+				                        </div>
+                                        <div class="form-group">
+				                    		<label class="sr-only" for="A6">Palyer 1</label>
+                                            <input type="text" name="A6" placeholder="Player 6..." class="form-first-name form-control" id="form-first-name" required="required" value="<?php echo $_POST['A6']; ?>">
+				                        </div>
+                                        <div class="form-group">
+				                    		<label class="sr-only" for="A7">Palyer 1</label>
+                                            <input type="text" name="A7" placeholder="Player 7..." class="form-first-name form-control" id="form-first-name" required="required" value="<?php echo $_POST['A7']; ?>">
+				                        </div><div class="form-group">
+				                    		<label class="sr-only" for="A8">Palyer 1</label>
+                                            <input type="text" name="A8" placeholder="Player 8..." class="form-first-name form-control" id="form-first-name" required="required" value="<?php echo $_POST['A8']; ?>">
+				                        </div> 
+			                    </div>
+		                    </div>
+                        </div>
+                        
+                        <div class="col-sm-1 middle-border"></div>
+                        <div class="col-sm-1"></div>
+                        	
+                        <div class="col-sm-5">
+                        	
+                        	<div class="form-box">
+                        		<div class="form-top">
+	                        		<div class="form-top-left">
+                                        <h1><strong style="color:white;">Ravagers</strong></h1>
+	                            		<p>Enter the qualified players</p>
+	                        		</div>
+	                        		<div class="form-top-right">
+	                        			<i class="fa fa-bell"></i>
+	                        		</div>
+	                            </div>
+	                            <div class="form-bottom">
+				                    	<div class="form-group">
+				                    		<label class="sr-only" for="B1">Palyer 1</label>
+                                            <input type="text" name="B1" placeholder="Player 1..." class="form-first-name form-control" id="form-first-name" required="required" value="<?php echo $_POST['B1']; ?>">
+				                        </div>
+                                        <div class="form-group">
+				                    		<label class="sr-only" for="B2">Palyer 1</label>
+                                            <input type="text" name="B2" placeholder="Player 2..." class="form-first-name form-control" id="form-first-name" required="required" value="<?php echo $_POST['B2']; ?>">
+				                        </div>
+                                        <div class="form-group">
+				                    		<label class="sr-only" for="B3">Palyer 1</label>
+                                            <input type="text" name="B3" placeholder="Player 3..." class="form-first-name form-control" id="form-first-name" required="required" value="<?php echo $_POST['B3']; ?>">
+				                        </div>
+                                        <div class="form-group">
+				                    		<label class="sr-only" for="B4">Palyer 1</label>
+                                            <input type="text" name="B4" placeholder="Player 4..." class="form-first-name form-control" id="form-first-name" required="required" value="<?php echo $_POST['B4']; ?>">
+				                        </div>    
+                                        <div class="form-group">
+				                    		<label class="sr-only" for="B5">Palyer 1</label>
+                                            <input type="text" name="B5" placeholder="Player 5..." class="form-first-name form-control" id="form-first-name" required="required" value="<?php echo $_POST['B5']; ?>">
+				                        </div>    
+                                        <div class="form-group">
+				                    		<label class="sr-only" for="B6">Palyer 1</label>
+                                            <input type="text" name="B6" placeholder="Player 6..." class="form-first-name form-control" id="form-first-name" required="required" value="<?php echo $_POST['B6']; ?>">
+				                        </div>    
+                                        <div class="form-group">
+				                    		<label class="sr-only" for="B7">Palyer 1</label>
+                                            <input type="text" name="B7" placeholder="Player 7..." class="form-first-name form-control" id="form-first-name" required="required" value="<?php echo $_POST['B7']; ?>">
+				                        </div>    
+                                        <div class="form-group">
+				                    		<label class="sr-only" for="B8">Palyer 1</label>
+                                            <input type="text" name="B8" placeholder="Player 8..." class="form-first-name form-control" id="form-first-name" required="required" value="<?php echo $_POST['B8']; ?>">
+				                        </div>  
+			                    </div>
+                        	</div>
+                        	
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            
+                        </div>
+                        <div class="col-md-4">
+                            <div class="center-block text-center">
+                                <input type="submit" class="btn btn-lg" style="background: #1b6d85; color: white" name="submit" value="Get Results">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            
+                        </div>                        
+                    </div>
+                    
+                    </form>
+                </div>
+            </div>
+            
+        </div>
+
+        <!-- Footer -->
+        <footer>
+        	<div class="container">
+        		<div class="row">
+        			
+        			<div class="col-sm-8 col-sm-offset-2">
+        				<div class="footer-border"></div>
+        				<p>Code logic : Jayan sir <i class="fa fa-smile-o"></i></p>
+        			</div>
+        			
+        		</div>
+        	</div>
+        </footer>
+
+        <!-- Javascript -->
+        <script src="assets/js/jquery-1.11.1.min.js"></script>
+        <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+        <script src="assets/js/jquery.backstretch.min.js"></script>
+        <script src="assets/js/scripts.js"></script>
+        
+    </body>
+
+</html>

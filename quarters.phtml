@@ -1,0 +1,298 @@
+<?php
+
+if($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $team1 = [];
+    $team2 = [];
+    for($i = 1; $i<=8; $i++){
+        if(1 == $_POST['QF'. $i . 'Team']){
+            $team1[] = $_POST['QF' . $i] . ' [T]';
+        } else {
+            $team2[] = $_POST['QF' . $i] . ' [R]';
+        }
+    }
+    $t1Count = count($team1);
+    $t2Count = count($team2);
+    if ($t1Count < 4 ) {
+        $needed = $t2Count - $t1Count;
+        for ($y = $t2Count- $needed; count($team1) < 4; $y++) {
+            $team1[] = $team2[$y];
+            unset($team2[$y]);
+        } 
+    } else if ($t2Count < 4) {
+        $needed = $t1Count - $t2Count;
+        for ($y = $t1Count- $needed; count($team2) < 4; $y++) {
+            $team2[] = $team1[$y];
+            unset($team1[$y]);
+        } 
+        
+    }
+    $inputs = [
+            $team1,
+            $team2
+        ];
+        $teams = $inputs;
+        if (count($teams) > 1 && count($teams[0]) <= count($teams[1])) {
+            $teamStrength = count($teams[0]);
+                $sets = [];
+                $team1 = $teams[0];
+                $team2 = $teams[1];
+                for ($loop = 0; $loop < $teamStrength; $loop++) {
+                    shuffle($team1);
+                    shuffle($team2);
+                    $k1 = array_rand($team1, 1);
+                    $k2 = array_rand($team2, 1);
+                    $sets[] = [
+                        $team1[$k1],
+                        $team2[$k2],
+                    ];
+                    unset($team1[$k1], $team2[$k2]);
+                }
+        } else {
+            die('Won\'t sort!!');
+        }
+}   
+?>
+<?php if($_SERVER['REQUEST_METHOD'] === 'POST'): ?>
+
+    
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Results</title>
+
+        <!-- CSS -->
+        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
+        <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css">
+		<link rel="stylesheet" href="assets/css/form-elements.css">
+        <link rel="stylesheet" href="assets/css/style.css">
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+        <!-- Favicon and touch icons -->
+        <link rel="shortcut icon" href="assets/ico/favicon.png">
+        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
+
+    </head>
+
+    <body>
+        
+        
+        
+<div class="top-content">
+        	
+    <div class="inner-bg">
+        <div class="container">
+            <form role="form" action="/randomdraws/semi.phtml" method="post" class="login-form">
+            
+            <div class="row">
+                <div class="col-sm-8 col-sm-offset-2 text">
+                    <h1><strong>Dart Em Up </strong>Quarter Draw Results</h1>
+                </div>
+            </div><br>
+            <br>
+            <div class="row">
+                <div class="col-md-1 text">
+                    <strong>Semi  <?php echo 1 ?></strong>
+                </div>
+                <div class="col-md-4 text" style="border: 2px solid white;">
+                    <div class="row">
+                        <h2 style="color: white"><?php echo $sets[0][0];?></h2>
+                    </div>
+                    <div class="row">
+                        <h1 style="color: white">VS</h1>
+                    </div>
+                    <div class="row">
+                        <h2 style="color: white"><?php echo $sets[0][1];?></h2>
+                    </div>
+                </div>
+                <div class="col-md-1 text-center center block text">
+                    
+                </div>
+                <div class="col-md-1 text">
+                    <strong>Semi  <?php echo 2 ?></strong>
+                </div>
+                <div class="col-md-4 text" style="border: 2px solid white;">
+                    <div class="row">
+                        <h2 style="color: white"><?php echo $sets[1][0];?></h2>
+                    </div>
+                    <div class="row">
+                        <h1 style="color: white">VS</h1>
+                    </div>
+                    <div class="row">
+                        <h2 style="color: white"><?php echo $sets[1][1];?></h2>
+                    </div>
+                </div>
+                <div class="col-md-1 text-center center block text">
+                    
+                </div>
+            </div>
+            <br>
+            <br><br>
+            <div class="row">
+                <div class="col-md-1 text">
+                    <strong>Semi  <?php echo 3 ?></strong>
+                </div>
+                <div class="col-md-4 text" style="border: 2px solid white;">
+                    <div class="row">
+                        <h2 style="color: white"><?php echo $sets[2][0];?></h2>
+                    </div>
+                    <div class="row">
+                        <h1 style="color: white">VS</h1>
+                    </div>
+                    <div class="row">
+                        <h2 style="color: white"><?php echo $sets[2][1];?></h2>
+                    </div>
+                </div>
+                <div class="col-md-1 text-center center block text">
+                    
+                </div>
+                <div class="col-md-1 text">
+                    <strong>Semi  <?php echo 4 ?></strong>
+                </div>
+                <div class="col-md-4 text" style="border: 2px solid white;">
+                    <div class="row">
+                        <h2 style="color: white"><?php echo $sets[3][0];?></h2>
+                    </div>
+                    <div class="row">
+                        <h1 style="color: white">VS</h1>
+                    </div>
+                    <div class="row">
+                        <h2 style="color: white"><?php echo $sets[3][1];?></h2>
+                    </div>
+                </div>
+                <div class="col-md-1 text-center center block text">
+                    
+                </div>
+            </div>
+            <br>
+            <br>
+            <br>
+            <br>
+            <div class="row">
+                <div class="col-md-1">
+                    
+                </div>
+                <div class="col-md-4 text-center center block text">
+                        <div class="form-group">
+                            <input type="text" name="SF1" placeholder="Semi Finalist 1..." class="form-first-name form-control" id="form-first-name" required="required">
+                        </div>  
+                        <div class="form-group">
+                            <select required="required" name="SF1Team" class="form-control" id="sel1">
+                                <option value="" selected="selected">Select Team</option>
+                                <option value="1">Titans</option>
+                                <option value="2">Ravagers</option>
+                            </select>
+                        </div>  
+                </div>
+                <div class="col-md-2">
+                    
+                </div>
+                <div class="col-md-4 text-center center block text">
+                        <div class="form-group">
+                            <input type="text" name="SF2" placeholder="Semi Finalist 2..." class="form-first-name form-control" id="form-first-name" required="required">
+                        </div>  
+                        <div class="form-group">
+                            <select required="required" name="SF2Team" class="form-control" id="sel1">
+                                <option value="" selected="selected">Select Team</option>
+                                <option value="1">Titans</option>
+                                <option value="2">Ravagers</option>
+                            </select>
+                        </div>  
+                </div>
+            </div>
+            <br>
+            <br>
+            <div class="row">
+                <div class="col-md-1">
+                    
+                </div>
+                <div class="col-md-4 text-center center block text">
+                        <div class="form-group">
+                            <input type="text" name="SF3" placeholder="Semi Finalist 3..." class="form-first-name form-control" id="form-first-name" required="required">
+                        </div>  
+                        <div class="form-group">
+                            <select required="required" name="SF3Team" class="form-control" id="sel1">
+                                <option value="" selected="selected">Select Team</option>
+                                <option value="1">Titans</option>
+                                <option value="2">Ravagers</option>
+                            </select>
+                        </div>  
+                </div>
+                <div class="col-md-2">
+                    
+                </div>
+                <div class="col-md-4 text-center center block text">
+                        <div class="form-group">
+                            <input type="text" name="SF4" placeholder="Semi Finalist 4..." class="form-first-name form-control" id="form-first-name" required="required">
+                        </div>  
+                        <div class="form-group">
+                            <select required="required" name="SF4Team" class="form-control" id="sel1">
+                                <option value="" selected="selected">Select Team</option>
+                                <option value="1">Titans</option>
+                                <option value="2">Ravagers</option>
+                            </select>
+                        </div>  
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+
+                </div>
+                <div class="col-md-4">
+                    <div class="center-block text-center">
+                        <input type="submit" class="btn btn-lg" style="background: #1b6d85; color: white" name="submit" value="Get Results">
+                    </div>
+                </div>
+                <div class="col-md-4">
+
+                </div>                        
+            </div>
+            </form>
+        </div>
+        
+    </div>
+    
+
+</div>    
+        
+        
+        
+            <!-- Footer -->
+        <footer>
+        	<div class="container">
+        		<div class="row">
+        			
+        			<div class="col-sm-8 col-sm-offset-2">
+        				<div class="footer-border"></div>
+        				<p>Code logic : Jayan sir <i class="fa fa-smile-o"></i></p>
+        			</div>
+        			
+        		</div>
+        	</div>
+        </footer>
+
+        <!-- Javascript -->
+        <script src="assets/js/jquery-1.11.1.min.js"></script>
+        <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+        <script src="assets/js/jquery.backstretch.min.js"></script>
+        <script src="assets/js/scripts.js"></script>
+        
+    </body>
+
+</html>    
+    
+<?php endif;
